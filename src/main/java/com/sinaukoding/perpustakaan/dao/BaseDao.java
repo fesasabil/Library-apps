@@ -37,7 +37,7 @@ public abstract class BaseDao<T extends BaseEntity<T>> {
 
         query.orderBy(builder.asc(root.get("id")));
 
-        return singleREsult(query, predicates(param, builder, root, false));
+        return singleResult(query, predicates(param, builder, root, false));
     }
 
     public Collection<T> find(T param, int offset, int limit) {
@@ -61,7 +61,7 @@ public abstract class BaseDao<T extends BaseEntity<T>> {
 
         query.select(builder.count(root));
 
-        return singleREsult(query, predicates(param, builder, root, true));
+        return singleResult(query, predicates(param, builder, root, true));
     }
 
     public T save(T entity) {
@@ -112,7 +112,7 @@ public abstract class BaseDao<T extends BaseEntity<T>> {
         return new ArrayList<>();
     }
 
-    public <I> I singleREsult(CriteriaQuery<I> query, List<Predicate> predicates) {
+    public <I> I singleResult(CriteriaQuery<I> query, List<Predicate> predicates) {
         try {
             query.where(predicates.toArray(new Predicate[0]));
 
