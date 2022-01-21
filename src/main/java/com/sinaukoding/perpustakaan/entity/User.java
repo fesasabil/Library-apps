@@ -28,7 +28,7 @@ public class User extends BaseEntity<User>{
     private String profileName;
 
     @Column(name = "username", columnDefinition = "VARCHAR(50)", nullable = false)
-    private String userName;
+    private String username;
 
     @Column(name = "password", nullable = false)
     private String password;
@@ -38,4 +38,8 @@ public class User extends BaseEntity<User>{
 
     @Column(name = "token")
     private String token;
+
+    public User(String username) {
+        this.username = username;
+    }
 }

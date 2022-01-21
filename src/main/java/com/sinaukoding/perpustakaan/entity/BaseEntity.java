@@ -36,7 +36,7 @@ public abstract class BaseEntity<T> implements Serializable {
         setCreatedTime(new Date());
     }
 
-    @PrePersist
+    @PostPersist
     protected void onUpdate() {
         setUpdatedTime(new Date());
     }

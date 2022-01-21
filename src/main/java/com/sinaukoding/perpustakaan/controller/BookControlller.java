@@ -6,7 +6,6 @@ import com.sinaukoding.perpustakaan.common.RestResult;
 import com.sinaukoding.perpustakaan.common.StatusCode;
 import com.sinaukoding.perpustakaan.entity.Book;
 import com.sinaukoding.perpustakaan.service.BookService;
-import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,7 +27,7 @@ public class BookControlller extends BaseController {
 
         long rows = bookService.count(book);
 
-        return new RestResult(rows > 0 ? bookService.find(book, offset, limit) : new ArrayList<>());
+        return new RestResult(rows > 0 ? bookService.find(book, offset, limit) : new ArrayList<>(), rows);
     }
 
     @PostMapping
